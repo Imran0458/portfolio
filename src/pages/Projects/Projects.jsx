@@ -1,20 +1,19 @@
+
 import { ReactLenis } from "lenis/react";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
-
- const projects = [
+const projects = [
   {
     title: "A Sleek Portfolio",
     description:
-      "A sleek portfolio built with React and Tailwind CSS to showcase your skills, projects, and experience in a modern design.",
+      "My personal portfolio built with React and Tailwind CSS to showcase my skills, projects, education, experience, and achievements with a modern and interactive design.",
     src: "tree.jpg",
     link: "https://cdn.postimage.me/2026/10/04/home-page.png",
     color: "#8f89ff",
     githubLink: "https://github.com/Imran0458",
-    liveLink:
-      "https://coming-soon-kfadbml4g-shaik-imran-s-projects.vercel.app/",
+    liveLink: "https://portfolio-seven-liart-13i1kcwa0i.vercel.app/",
   },
 
   {
@@ -24,9 +23,8 @@ import PropTypes from "prop-types";
     src: "3d-world.jpg",
     link: "https://cdn.postimage.me/2026/10/04/3d-world.png",
     color: "#ed649e",
-    githubLink: "https://github.com/seraprogrammer/CodeKori",
-    liveLink:
-      "https://coming-soon-three-delta.vercel.app/",
+    githubLink: "https://github.com/Imran0458",
+    liveLink: "https://coming-soon-three-delta.vercel.app/",
   },
 
   {
@@ -36,15 +34,14 @@ import PropTypes from "prop-types";
     src: "gamified-learning.jpg",
     link: "https://cdn.postimage.me/2026/10/04/gamefied.png",
     color: "#6366f1",
-    githubLink:
-      "YOUR_GITHUB_REPOSITORY_URL",
-    liveLink:
-      "https://coming-soon-three-delta.vercel.app/",
+    githubLink: "https://github.com/Imran0458",
+    liveLink: "https://coming-soon-three-delta.vercel.app/",
   },
 ];
 
 export default function Projects() {
   const container = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
@@ -53,6 +50,7 @@ export default function Projects() {
   useEffect(() => {
     // Add specific styles for 1366x768 resolution
     const style = document.createElement("style");
+
     style.textContent = `
       @media screen and (width: 1366px) and (height: 768px),
              screen and (width: 1367px) and (height: 768px),
@@ -61,11 +59,13 @@ export default function Projects() {
           scale: 0.85;
           margin-top: -5vh;
         }
+
         .project-container {
           height: 90vh;
         }
       }
     `;
+
     document.head.appendChild(style);
 
     // Resolution check function
@@ -77,15 +77,30 @@ export default function Projects() {
         window.innerHeight <= 775;
 
       if (isTargetResolution) {
-        document.documentElement.style.setProperty("--project-scale", "0.85");
-        document.documentElement.style.setProperty("--project-margin", "-5vh");
+        document.documentElement.style.setProperty(
+          "--project-scale",
+          "0.85"
+        );
+
+        document.documentElement.style.setProperty(
+          "--project-margin",
+          "-5vh"
+        );
       } else {
-        document.documentElement.style.setProperty("--project-scale", "1");
-        document.documentElement.style.setProperty("--project-margin", "0");
+        document.documentElement.style.setProperty(
+          "--project-scale",
+          "1"
+        );
+
+        document.documentElement.style.setProperty(
+          "--project-margin",
+          "0"
+        );
       }
     };
 
     checkResolution();
+
     window.addEventListener("resize", checkResolution);
 
     return () => {
@@ -100,6 +115,7 @@ export default function Projects() {
         <section className="text-white w-full bg-slate-950">
           {projects.map((project, i) => {
             const targetScale = 1 - (projects.length - i) * 0.05;
+
             return (
               <Card
                 key={`p_${i}`}
@@ -135,6 +151,7 @@ function Card({
   liveLink,
 }) {
   const container = useRef(null);
+
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
@@ -157,7 +174,8 @@ function Card({
       >
         {/* Modern split card design */}
         <div className="w-full flex flex-col md:flex-row bg-zinc-900 rounded-2xl overflow-hidden shadow-xl">
-          {/* Image section - full width on mobile, 55% on desktop */}
+          
+          {/* Image section */}
           <div className="w-full md:w-[55%] h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden">
             <motion.img
               src={url}
@@ -171,7 +189,10 @@ function Card({
             {/* Colored overlay on hover */}
             <motion.div
               className="absolute inset-0"
-              style={{ backgroundColor: color, mixBlendMode: "overlay" }}
+              style={{
+                backgroundColor: color,
+                mixBlendMode: "overlay",
+              }}
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 0.3 }}
               transition={{ duration: 0.3 }}
@@ -183,20 +204,23 @@ function Card({
             </div>
           </div>
 
-          {/* Content section - full width on mobile, 45% on desktop */}
+          {/* Content section */}
           <div className="w-full md:w-[45%] p-6 md:p-8 lg:p-10 flex flex-col justify-between">
+            
             <div>
               <div className="flex items-center gap-3 mb-4 md:mb-6">
                 <div
                   className="w-2 h-2 md:w-3 md:h-3 rounded-full"
                   style={{ backgroundColor: color }}
                 />
+
                 <div className="h-[1px] w-12 md:w-20 bg-gray-600" />
               </div>
 
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 md:mb-4">
                 {title}
               </h2>
+
               <p className="text-sm md:text-base text-gray-400 leading-relaxed line-clamp-3 md:line-clamp-none max-w-md">
                 {description}
               </p>
@@ -206,14 +230,19 @@ function Card({
               <div className="w-full h-[1px] bg-gray-800 mb-4 md:mb-6" />
 
               <div className="flex items-center gap-4">
-                {/* GitHub Link */}
+                
+                {/* GitHub Profile Link */}
                 <motion.a
                   href={githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`View ${title} GitHub profile`}
                   className="group flex items-center gap-2"
                   whileHover={{ y: -3 }}
-                  transition={{ type: "spring", stiffness: 400 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -226,13 +255,14 @@ function Card({
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                   </svg>
+
                   <span
                     className="text-xs md:text-sm font-medium"
                     style={{ color }}
                   >
-                    Code
+                    GitHub
                   </span>
                 </motion.a>
 
@@ -241,9 +271,13 @@ function Card({
                   href={liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Open ${title} live website`}
                   className="group flex items-center gap-2"
                   whileHover={{ y: -3 }}
-                  transition={{ type: "spring", stiffness: 400 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -256,10 +290,22 @@ function Card({
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                    />
+
+                    <line
+                      x1="2"
+                      y1="12"
+                      x2="22"
+                      y2="12"
+                    />
+
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                   </svg>
+
                   <span
                     className="text-xs md:text-sm font-medium"
                     style={{ color }}
@@ -276,7 +322,7 @@ function Card({
   );
 }
 
-// Add PropTypes validation
+// PropTypes validation
 Card.propTypes = {
   i: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
@@ -289,3 +335,4 @@ Card.propTypes = {
   githubLink: PropTypes.string.isRequired,
   liveLink: PropTypes.string.isRequired,
 };
+
