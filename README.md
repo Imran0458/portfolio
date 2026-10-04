@@ -14,7 +14,7 @@ A modern, responsive developer portfolio built with **React.js, Vite, Tailwind C
 
 Check out my portfolio:
 
-**[Portfolio Website](https://codervai.vercel.app/)**
+🌐 **[Portfolio Website](https://portfolio-seven-liart-13i1kcwa0i.vercel.app/)**
 
 ---
 
@@ -126,8 +126,7 @@ A modern developer portfolio designed to showcase my technical skills, projects,
 * GitHub integration
 * Live project links
 
-🌐 **Live:**
-https://codervai.vercel.app/
+🌐 **[Portfolio Website](https://portfolio-seven-liart-13i1kcwa0i.vercel.app/)**
 
 ---
 
@@ -407,7 +406,7 @@ Every production build can be deployed directly from the GitHub repository throu
 
 🌐 **Live Portfolio:**
 
-https://codervai.vercel.app/
+🌐 **[Portfolio Website](https://portfolio-seven-liart-13i1kcwa0i.vercel.app/)**
 
 ---
 
