@@ -232,7 +232,7 @@ const profile = {
 
                 {/* Contact Button */}
               <a
-  href="IMRAN01.pdf"
+  href={Resume}
   target="_blank"
   rel="noopener noreferrer"
   className="group relative inline-flex items-center justify-center gap-3 p-0.5 rounded-xl bg-gradient-to-r from-gray-800 to-gray-700 transition-all duration-300 hover:scale-105"
