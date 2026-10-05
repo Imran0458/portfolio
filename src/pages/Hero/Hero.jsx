@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Resume from "@/assets/IMRAN01.png";
 import Prism from "prismjs";
 import "prismjs/components/prism-javascript";
 import "@/assets/css/tomorrow.css";
