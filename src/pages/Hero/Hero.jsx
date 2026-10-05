@@ -231,8 +231,9 @@ const profile = {
                 </a>
 
                 {/* Contact Button */}
-              <a
-  href={Resume}
+             
+<a
+  href="https://drive.google.com/file/d/1fIAMxea9sXFrCJmxS1FQ7vTMhKrXK2cu/view?usp=drivesdk"
   target="_blank"
   rel="noopener noreferrer"
   className="group relative inline-flex items-center justify-center gap-3 p-0.5 rounded-xl bg-gradient-to-r from-gray-800 to-gray-700 transition-all duration-300 hover:scale-105"
@@ -244,6 +245,8 @@ const profile = {
     </span>
   </span>
 </a>
+
+
               </div>
 
               {/* Floating badges */}
